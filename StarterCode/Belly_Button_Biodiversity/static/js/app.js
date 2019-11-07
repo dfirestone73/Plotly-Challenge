@@ -25,7 +25,7 @@ function buildMetadata(sample) {
 };
 
 function buildCharts(sample) {
-  var urlChart = `/sample/${sample}`;
+  var urlChart = `/samples/${sample}`;
   // @TODO: Use `d3.json` to fetch the sample data for the plots
   d3.json(urlChart).then(function (response) {
 
@@ -38,6 +38,7 @@ function buildCharts(sample) {
       text: ['A</br>size: 40</br>sixeref: 1.25', 'B</br>size: 60</br>sixeref: 1.25', 'C</br>size: 80</br>sixeref: 1.25', 'D</br>size: 100</br>sixeref: 1.25'],
       mode: 'markers',
       marker: {
+        color:response.sample_values,
         size: size,
         //set 'sizeref' to an 'ideal' size given by the formula sizeref = 2. * max(array_of_size_values) / (desired_maximum_marker_size ** 2)
         sizeref: 2.0 * Math.max(...size) / (desired_maximum_marker_size ** 2),
@@ -45,9 +46,9 @@ function buildCharts(sample) {
       }
     };
 
-    var data = [trace1];
+    var dataB = [trace1];
 
-    var layout = {
+    var layoutB = {
       title: 'Belly Button Samples',
       showlegend: false,
       height: 600,
@@ -56,7 +57,7 @@ function buildCharts(sample) {
       yaxis: { title: 'Sample Volume' }
     };
 
-    Plotly.newPlot('bubble', data, layout);
+    Plotly.newPlot('bubble', dataB, layoutB);
 
     // @TODO: Build a Pie Chart
     var Pvalues = response.sample_values.slice(0, 9);
@@ -67,6 +68,16 @@ function buildCharts(sample) {
       labels: Plabels,
       type: 'pie'
     }];
+
+    var layoutP = {
+      title: 'Top 10 Samples by Volume',
+      showlegend: true,
+      height: 400,
+      width: 700,
+      legend: { title: 'ID Number' }
+    };
+
+    Plotly.newPlot('pie', pchart, layoutP);
 
     // HINT: You will need to use slice() to grab the top 10 sample_values,
     // otu_ids, and labels (10 each).
