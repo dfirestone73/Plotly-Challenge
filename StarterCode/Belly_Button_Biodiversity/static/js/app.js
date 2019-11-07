@@ -18,7 +18,7 @@ function buildMetadata(sample) {
       panel.append("h6").text(`${key}:${value}`);
     })
 
-    
+
 
   });
 
@@ -66,16 +66,17 @@ function buildCharts(sample) {
     // @TODO: Build a Pie Chart
     var Pvalues = response.sample_values.slice(0, 9);
     var Plabels = response.otu_ids.slice(0, 9);
+    var hover = response.otu_labels.slice(0, 9);
 
     var pchart = [{
       values: Pvalues,
       labels: Plabels,
-      type: 'pie'
+      type: 'pie',
+      hoverinfo: 'hover'
     }];
 
     var layoutP = {
       title: 'Top 10 Samples by Volume',
-      hoverinfo:response.otu_labels,
       showlegend: true,
       height: 400,
       width: 700,
