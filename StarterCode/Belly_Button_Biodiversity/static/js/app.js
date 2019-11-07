@@ -75,6 +75,7 @@ function buildCharts(sample) {
 
     var layoutP = {
       title: 'Top 10 Samples by Volume',
+      hoverinfo:response.otu_labels,
       showlegend: true,
       height: 400,
       width: 700,
