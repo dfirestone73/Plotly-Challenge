@@ -18,41 +18,7 @@ function buildMetadata(sample) {
       panel.append("h6").text(`${key}:${value}`);
     })
 
-    // var Gdata = [
-    //   {
-    //     type: "indicator",
-    //     mode: "gauge+number+delta",
-    //     value: 420,
-    //     title: { text: "Speed", font: { size: 24 } },
-    //     delta: { reference: 400, increasing: { color: "green" } },
-    //     gauge: {
-    //       axis: { range: [null, 9], tickwidth: 1, tickcolor: "black" },
-    //       bar: { color: "darkblue" },
-    //       bgcolor: "white",
-    //       borderwidth: 2,
-    //       bordercolor: "gray",
-    //       steps: [
-    //         { range: [0, 250], color: "white" },
-    //         { range: [250, 400], color: "darkgreen" }
-    //       ],
-    //       threshold: {
-    //         line: { color: "red", width: 4 },
-    //         thickness: 0.75,
-    //         value: 490
-    //       }
-    //     }
-    //   }
-    // ];
-
-    // var layoutG = {
-    //   width: 500,
-    //   height: 400,
-    //   margin: { t: 25, r: 25, l: 25, b: 25 },
-    //   paper_bgcolor: "green",
-    //   font: { color: "black", family: "Arial" }
-    // };
-
-    // Plotly.newPlot('buildGuage', Gdata, layoutG);
+    
 
   });
 
