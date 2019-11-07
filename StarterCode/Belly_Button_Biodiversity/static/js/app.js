@@ -18,10 +18,48 @@ function buildMetadata(sample) {
       panel.append("h6").text(`${key}:${value}`);
     })
 
+    // var Gdata = [
+    //   {
+    //     type: "indicator",
+    //     mode: "gauge+number+delta",
+    //     value: 420,
+    //     title: { text: "Speed", font: { size: 24 } },
+    //     delta: { reference: 400, increasing: { color: "green" } },
+    //     gauge: {
+    //       axis: { range: [null, 9], tickwidth: 1, tickcolor: "black" },
+    //       bar: { color: "darkblue" },
+    //       bgcolor: "white",
+    //       borderwidth: 2,
+    //       bordercolor: "gray",
+    //       steps: [
+    //         { range: [0, 250], color: "white" },
+    //         { range: [250, 400], color: "darkgreen" }
+    //       ],
+    //       threshold: {
+    //         line: { color: "red", width: 4 },
+    //         thickness: 0.75,
+    //         value: 490
+    //       }
+    //     }
+    //   }
+    // ];
+
+    // var layoutG = {
+    //   width: 500,
+    //   height: 400,
+    //   margin: { t: 25, r: 25, l: 25, b: 25 },
+    //   paper_bgcolor: "green",
+    //   font: { color: "black", family: "Arial" }
+    // };
+
+    // Plotly.newPlot('buildGuage', Gdata, layoutG);
+
   });
 
   // BONUS: Build the Gauge Chart
   // buildGauge(data.WFREQ);
+
+
 };
 
 function buildCharts(sample) {
@@ -38,7 +76,7 @@ function buildCharts(sample) {
       text: ['A</br>size: 40</br>sixeref: 1.25', 'B</br>size: 60</br>sixeref: 1.25', 'C</br>size: 80</br>sixeref: 1.25', 'D</br>size: 100</br>sixeref: 1.25'],
       mode: 'markers',
       marker: {
-        color:response.sample_values,
+        color: response.sample_values,
         size: size,
         //set 'sizeref' to an 'ideal' size given by the formula sizeref = 2. * max(array_of_size_values) / (desired_maximum_marker_size ** 2)
         sizeref: 2.0 * Math.max(...size) / (desired_maximum_marker_size ** 2),
@@ -81,6 +119,7 @@ function buildCharts(sample) {
 
     // HINT: You will need to use slice() to grab the top 10 sample_values,
     // otu_ids, and labels (10 each).
+
 
 
   });
